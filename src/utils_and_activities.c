@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils_and_activities.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lgrimmei <lgrimmei@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lgrimmei <lgrimmei@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/22 14:10:41 by lgrimmei          #+#    #+#             */
-/*   Updated: 2023/09/28 18:08:57 by lgrimmei         ###   ########.fr       */
+/*   Updated: 2024/03/20 19:14:06 by lgrimmei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,8 +41,11 @@ long int	ft_atoi(const char *nptr)
 
 void	go_think(t_philo *philo)
 {
+	long long	ttt;
 	set_philo_status(philo, THINKING);
 	print_log(philo, MSG_THINK);
+	ttt = (philo->data->die_t - philo->data->eat_t - philo->data->sleep_t) * 0.9;
+	my_sleep(philo, ttt);
 }
 
 void	go_sleep(t_philo *philo)
